@@ -1,0 +1,10 @@
+workspace_insania/.metadata/*
+
+workspace_insania/Insania Terra/assets/*
+workspace_insania/Insania Terra/.settings/*
+workspace_insania/Insania Terra/bin/*
+workspace_insania/Insania Terra/gen/*
+workspace_insania/Insania Terra/.classpath
+workspace_insania/Insania Terra/.project
+workspace_insania/Insania Terra/proguard.cfg
+workspace_insania/Insania Terra/project.properties

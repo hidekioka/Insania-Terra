@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:weightSum="1">
+	<TextView
+        android:layout_height="60dp"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:id="@+id/dungeonNameText"
+		android:layout_width="fill_parent"
+		android:gravity="center"
+		android:text="@string/empty_string">
+	</TextView>
+	<Button
+        android:layout_height="60dp"
+		android:id="@+id/button1"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true"
+		android:text="@string/go_back"
+		android:onClick="viewMapScreen"
+		android:layout_width="fill_parent"></Button>
+	<ListView
+		android:id="@+id/floorsListView"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_below="@+id/dungeonNameText"
+		android:layout_alignParentLeft="true"
+		android:layout_above="@+id/button1"></ListView>
+</RelativeLayout>

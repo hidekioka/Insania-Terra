@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@drawable/grass_map">
+	<ImageView
+		android:layout_width="wrap_content"
+		android:src="@drawable/castle"
+		android:layout_height="wrap_content"
+		android:onClick="viewTownScreen"
+		android:layout_centerInParent="true"
+		android:id="@+id/imageView1"></ImageView>
+	<ImageView
+		android:src="@drawable/tower_dungeon"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/imageView2"
+		android:onClick="viewTowerDungeonScreen"
+		android:layout_above="@+id/imageView1"
+		android:layout_toLeftOf="@+id/imageView1"
+		android:layout_marginBottom="47dp"></ImageView>
+	<ImageView
+		android:id="@+id/imageView3"
+		android:layout_height="wrap_content"
+		android:src="@drawable/mountain_dungeon"
+		android:layout_width="wrap_content"
+		android:onClick="viewMountainDungeonScreen"
+		android:layout_below="@+id/imageView1"
+		android:layout_toRightOf="@+id/imageView1"
+		android:layout_marginLeft="14dp"
+		android:layout_marginTop="25dp"></ImageView>
+
+</RelativeLayout>
