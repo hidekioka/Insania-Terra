@@ -9,7 +9,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +27,6 @@ public class DungeonActivity extends Activity {
 	private Dungeon dungeon;
 	private String dungeonName = "";
 	private Hero hero;
-	private Context context = this;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -114,8 +112,8 @@ public class DungeonActivity extends Activity {
 	}
 
 	private void updateWidget() {
-		Intent updateWidgetIntent = new Intent(this, GameWidget.class);
-		updateWidgetIntent.setAction(GameWidget.ACTION_WIDGET_RECEIVER);
+		Intent updateWidgetIntent = new Intent(this, Widget.class);
+		updateWidgetIntent.setAction(Widget.ACTION_WIDGET_RECEIVER);
 		this.sendBroadcast(updateWidgetIntent);
 	}
 }

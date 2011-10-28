@@ -1,5 +1,7 @@
 package game.android;
 
+import game.unit.player.Hero;
+import game.unit.player.Hero.HeroStatus;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -10,11 +12,16 @@ import android.view.View;
 
 import com.android.R;
 
-public class MapActivity extends Activity {
+public class InitialActivity extends Activity {
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.map);
+		((InsaniaTerra) this.getApplication()).createEnemyDatabase(this);
+		((InsaniaTerra) this.getApplication()).createDungeonManager(this);
+		((InsaniaTerra) this.getApplication()).setHero(new Hero(""));
+		((Hero) ((InsaniaTerra) this.getApplication()).getHero()).setHeroStatus(HeroStatus.NONE);
+		setContentView(R.layout.initial);
+		updateWidget();
 	}
 
 	protected void onStart() {
@@ -47,7 +54,7 @@ public class MapActivity extends Activity {
 				public void onClick(DialogInterface dialog, int which) {
 					switch (which) {
 						case DialogInterface.BUTTON_POSITIVE:
-							android.os.Process.killProcess(android.os.Process.myPid());
+							finish();
 							break;
 
 						case DialogInterface.BUTTON_NEGATIVE:
@@ -57,29 +64,38 @@ public class MapActivity extends Activity {
 			};
 
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage("Return to main menu?").setPositiveButton("Yes", dialogClickListener)
+			builder.setMessage("Do you want to close this application?").setPositiveButton("Yes", dialogClickListener)
 					.setNegativeButton("No", dialogClickListener).show();
 
 		}
 		return super.onKeyDown(keyCode, event);
 	}
 
-	public void viewTowerDungeonScreen(View view) {
+	public void viewMapScreen(View view) {
 		// finish();
-		Intent intent = new Intent(this, DungeonActivity.class);
-		intent.putExtra("name", "Tower");
-		startActivity(intent);
+		startActivity(new Intent(this, ProfileActivity.class));
 	}
 
-	public void viewMountainDungeonScreen(View view) {
+	public void loadGame(View view) {
 		// finish();
-		Intent intent = new Intent(this, DungeonActivity.class);
-		intent.putExtra("name", "Mountain");
-		startActivity(intent);
+		((InsaniaTerra) this.getApplication()).setHero(new Hero("LoadGame"));
+		startActivity(new Intent(this, MapActivity.class));
+		updateWidget();
 	}
 
-	public void viewTownScreen(View view) {
+	public void viewNewGameScreen(View view) {
 		// finish();
-		startActivity(new Intent(this, TownActivity.class));
+		startActivity(new Intent(this, NewGameActivity.class));
 	}
+
+	public void closeProgram(View view) {
+		finish();
+	}
+
+	private void updateWidget() {
+		Intent updateWidgetIntent = new Intent(this, Widget.class);
+		updateWidgetIntent.setAction(Widget.ACTION_WIDGET_RECEIVER);
+		this.sendBroadcast(updateWidgetIntent);
+	}
+
 }

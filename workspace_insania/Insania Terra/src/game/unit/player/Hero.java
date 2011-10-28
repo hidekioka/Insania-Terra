@@ -11,7 +11,7 @@ import java.util.Properties;
 public class Hero extends Unit {
 
 	public enum HeroStatus {
-		BUSY, IDLE, DEAD, REPORTING
+		NONE, BUSY, IDLE, DEAD, REPORTING
 	}
 
 	private static Double initialStrength = 10.0;

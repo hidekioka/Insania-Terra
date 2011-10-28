@@ -1,17 +1,12 @@
 package game.unit.enemy;
 
-import game.unit.enemy.Enemy;
-
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import com.android.R;
-
-import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
+
+import com.android.R;
 
 public class EnemyDatabase {
 	private Enemy[] enemies = new Enemy[3];

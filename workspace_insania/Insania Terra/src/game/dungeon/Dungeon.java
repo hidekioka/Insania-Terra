@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Dungeon {
 
 	public enum DungeonStatus {
-		ENABLED, DISABLED, BUSY, IDLE
+		DISABLED, BUSY, IDLE
 	}
 
 	private Floor[] floors;
@@ -23,6 +23,11 @@ public class Dungeon {
 		}
 	}
 
+	public Dungeon(String name) {
+		this.name = name;
+		floors = new Floor[0];
+	}
+
 	public String getName() {
 		return this.name;
 	}
@@ -34,7 +39,10 @@ public class Dungeon {
 	public ArrayList<String> processDungeon(Unit hero) {
 		ArrayList<String> dungeonLog = new ArrayList<String>();
 		dungeonLog.add("Entered ".concat(name));
-		/* For all of the floors in the dungeon, rolls random events for each floor tile. */
+		/*
+		 * For all of the floors in the dungeon, rolls random events for each
+		 * floor tile.
+		 */
 		for (Integer i = 0; i <= ((Hero) hero).getFloorsToGo(); i++) {
 			dungeonLog.add((">Entered floor ").concat(i.toString()));
 			ArrayList<String> floorLog = floors[i].eventProcess(hero);

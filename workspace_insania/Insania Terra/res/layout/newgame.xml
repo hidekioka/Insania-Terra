@@ -1,78 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:padding="5dp">
-	<TextView
-		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:layout_width="fill_parent"
-		android:id="@+id/textView1"
-		android:layout_height="wrap_content"
-		android:text="@string/profile"
-		android:gravity="center"
-		android:layout_alignParentTop="true"
-		android:layout_alignParentLeft="true"></TextView>
-	<Gallery
-		android:background="@drawable/gallery"
-		android:id="@+id/gallery"
-		android:layout_height="192px"
-		android:layout_width="fill_parent"
-		android:layout_below="@+id/textView1"></Gallery>
-	<ImageView
-		android:src="@drawable/character01"
-		android:id="@+id/characterPhoto"
-		android:layout_height="192px"
-		android:layout_width="192px"
-		android:layout_below="@+id/gallery"
-		android:layout_alignParentLeft="true"
-		android:layout_toLeftOf="@+id/heroNameEdit"></ImageView>
-	<EditText
-		android:layout_width="wrap_content"
-		android:id="@+id/heroNameEdit"
-		android:layout_height="wrap_content"
-		android:layout_alignBottom="@+id/characterPhoto"
-		android:layout_alignLeft="@+id/textView2"
-		android:layout_alignParentRight="true">
-		<requestFocus></requestFocus>
-	</EditText>
-	<TextView
-		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:layout_width="wrap_content"
-		android:id="@+id/textView2"
-		android:layout_height="wrap_content"
-		android:layout_above="@+id/heroNameEdit"
-		android:layout_centerHorizontal="true"
-		android:text="@string/name"></TextView>
-	<Spinner
-		android:layout_height="wrap_content"
-		android:layout_below="@+id/TextView01"
-		android:layout_width="fill_parent" android:id="@+id/vocationSpinner"></Spinner>
-	<TextView
-		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:id="@+id/TextView01"
-		android:text="@string/vocation"
-		android:layout_below="@+id/characterPhoto"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"></TextView>
-	<LinearLayout
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true">
-		<Button
-			android:layout_weight="50"
-			android:layout_height="wrap_content"
-			android:id="@+id/button1"
-			android:layout_width="wrap_content"
-			android:onClick="startGame"
-			android:text="@string/done"></Button>
-		<Button
-			android:layout_weight="50"
-			android:layout_height="wrap_content"
-			android:id="@+id/Button01"
-			android:layout_width="wrap_content"
-			android:onClick="viewInitialScreen"
-			android:text="@string/go_back"></Button>
-	</LinearLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:gravity="center"
+        android:text="@string/profile"
+        android:textAppearance="?android:attr/textAppearanceLarge" >
+    </TextView>
+
+    <Gallery
+        android:id="@+id/gallery"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_weight="25"
+        android:background="@drawable/gallery" >
+    </Gallery>
+
+    <RelativeLayout
+        android:layout_below="@+id/gallery"
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="20" >
+
+        <ImageView
+            android:id="@+id/characterPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/character01" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/characterPhoto"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/heroNameEdit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <requestFocus />
+            </EditText>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_below="@+id/relativeLayout1"
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="7"
+        android:text="@string/vocation"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+        android:layout_below="@+id/TextView01"
+        android:id="@+id/vocationSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="8" >
+    </Spinner>
+
+    <TableLayout
+        android:layout_below="@+id/vocationSpinner"
+        android:id="@+id/linearLayout5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="20" >
+
+        <TableRow >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/str"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/strTextNewGame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/empty_string"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/vit"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/vitTextNewGame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/empty_string"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+
+        <TableRow >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/dex"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/dexTextNewGame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/empty_string"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/mag"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/magTextNewGame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/empty_string"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+
+        <TableRow >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/spr"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/sprTextNewGame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="@string/empty_string"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="25"
+                android:text="@string/blank_string" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="25"
+                android:text="@string/blank_string" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_weight="10" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="startGame"
+            android:text="@string/done" />
+
+        <Button
+            android:id="@+id/Button01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="viewInitialScreen"
+            android:text="@string/go_back" />
+    </LinearLayout>
+
 </RelativeLayout>

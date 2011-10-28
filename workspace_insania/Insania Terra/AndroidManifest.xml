@@ -12,7 +12,7 @@
         android:name="game.android.InsaniaTerra" >
         <receiver
             android:label="@string/app_name"
-            android:name="game.android.GameWidget" >
+            android:name="game.android.Widget" >
             <intent-filter >
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -23,7 +23,7 @@
         </receiver>
 
         <activity
-            android:name="game.android.MainActivity"
+            android:name="game.android.InitialActivity"
             android:screenOrientation="portrait" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />

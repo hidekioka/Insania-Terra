@@ -1,29 +1,29 @@
 package game.dungeon;
 
+import game.android.InsaniaTerra;
 import game.unit.enemy.EnemyDatabase;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.R;
 
 public class DungeonManager {
-	private int dungeonNumber = 2;
-	private Dungeon[] dungeons = new Dungeon[dungeonNumber];
-	private EnemyDatabase enemyDB;
+	private ArrayList<Dungeon> dungeons = new ArrayList<Dungeon>();
 
 	public DungeonManager(Context context) {
-		this.enemyDB = new EnemyDatabase(context);
+		EnemyDatabase enemyDB = ((InsaniaTerra) context.getApplicationContext()).getEnemyDatabase();
 		InputStream inputStream = null;
 		try {
 			inputStream = context.getResources().openRawResource(R.raw.dungeon_database);
 			InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 			String read = bufferedReader.readLine();
-			int counter = 0;
 			while (read != null) {
 				read = bufferedReader.readLine();
 				String[] dungeonProperties = read.split(" ");
@@ -35,9 +35,8 @@ public class DungeonManager {
 				Integer itemFindRate = Integer.parseInt(dungeonProperties[5]);
 				Integer healTileRate = Integer.parseInt(dungeonProperties[6]);
 				Integer trapTileRate = Integer.parseInt(dungeonProperties[7]);
-				dungeons[counter] = new Dungeon(name, floorNumber, size, enemyDB.getEnemiesByDifficulty(difficulty),
-						encounterRate, itemFindRate, healTileRate, trapTileRate);
-				counter++;
+				dungeons.add(new Dungeon(name, floorNumber, size, enemyDB.getEnemiesByDifficulty(difficulty),
+						encounterRate, itemFindRate, healTileRate, trapTileRate));
 			}
 			inputStream.close();
 		} catch (Exception e) {
@@ -46,10 +45,12 @@ public class DungeonManager {
 	}
 
 	public Dungeon getDungeonByName(String name) {
-		for (int i = 0; i < dungeonNumber; i++) {
-			if (dungeons[i].getName().equals(name))
-				return dungeons[i];
+		Log.w("Dungeon", dungeons.toString());
+		for (Dungeon d : dungeons) {
+			// if (dungeons.get(i).getName().equals(name))
+			Log.w("Dungeon", d.getName());
+			return d;
 		}
-		return null;
+		return new Dungeon("Error");
 	}
 }

@@ -6,13 +6,11 @@ import android.os.Bundle;
 import com.android.R;
 
 public class SettingsActivity extends Activity {
-	/** Called when the activity is first created. */
-	@Override
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.settings);
 	}
-
 
 	protected void onStart() {
 		super.onStart();

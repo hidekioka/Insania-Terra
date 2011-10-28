@@ -16,7 +16,6 @@ import android.widget.TextView;
 import com.android.R;
 
 public class ReportActivity extends Activity {
-	// private Dungeon dungeon;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -63,8 +62,8 @@ public class ReportActivity extends Activity {
 	}
 
 	private void updateWidget() {
-		Intent updateWidgetIntent = new Intent(this, GameWidget.class);
-		updateWidgetIntent.setAction(GameWidget.ACTION_WIDGET_RECEIVER);
+		Intent updateWidgetIntent = new Intent(this, Widget.class);
+		updateWidgetIntent.setAction(Widget.ACTION_WIDGET_RECEIVER);
 		this.sendBroadcast(updateWidgetIntent);
 	}
 }

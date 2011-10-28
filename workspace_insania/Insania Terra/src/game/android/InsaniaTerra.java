@@ -36,5 +36,5 @@ public class InsaniaTerra extends Application {
 	public EnemyDatabase getEnemyDatabase() {
 		return enemyDB;
 	}
-	
+
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.android.R;
 
 public class GameOverActivity extends Activity {
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.game_over);
