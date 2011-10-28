@@ -59,6 +59,14 @@
             android:name="game.android.ReportActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="game.android.EquipmentActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="game.android.GameOverActivity"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

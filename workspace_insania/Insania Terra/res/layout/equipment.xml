@@ -1,8 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:weightSum="1">
-</RelativeLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/armorImageView"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/equipment_box_armor" />
+
+        <ImageView
+            android:id="@+id/rightArmImageView"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignBottom="@+id/bootsImageView"
+            android:layout_marginLeft="3dp"
+            android:layout_marginBottom="32dp"
+            android:layout_toRightOf="@+id/bootsImageView"
+            android:src="@drawable/equipment_box_weapon" />
+
+        <ImageView
+            android:id="@+id/leftArmImageView"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignBottom="@+id/bootsImageView"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="32dp"
+            android:layout_toLeftOf="@+id/bootsImageView"
+            android:src="@drawable/equipment_box_shield" />
+
+        <ImageView
+            android:id="@+id/bootsImageView"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignLeft="@+id/armorImageView"
+            android:layout_below="@+id/armorImageView"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/equipment_box_boots" />
+
+        <ImageView
+            android:id="@+id/helmetImageView"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_above="@+id/armorImageView"
+            android:layout_alignLeft="@+id/armorImageView"
+            android:src="@drawable/equipment_box_helmet" />
+
+        <ImageView
+            android:id="@+id/amuletImageView"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="3dp"
+            android:layout_above="@+id/rightArmImageView"
+            android:layout_alignLeft="@+id/rightArmImageView"
+            android:src="@drawable/equipment_box_amulet" />
+
+        <ImageView
+            android:id="@+id/ringImageView"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_above="@+id/leftArmImageView"
+            android:layout_alignLeft="@+id/leftArmImageView"
+            android:src="@drawable/equipment_box_ring" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="viewProfileScreen"
+        android:text="@string/go_back" />
+
+</LinearLayout>

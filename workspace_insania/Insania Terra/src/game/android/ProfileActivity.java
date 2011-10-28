@@ -2,6 +2,7 @@ package game.android;
 
 import game.unit.Unit;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -46,6 +47,10 @@ public class ProfileActivity extends Activity {
 
 	public void viewTownScreen(View view) {
 		finish();
+	}
+
+	public void viewEquipmentScreen(View view) {
+		startActivity(new Intent(this, EquipmentActivity.class));
 	}
 
 	/**

@@ -21,6 +21,7 @@ public class InitialActivity extends Activity {
 		((InsaniaTerra) this.getApplication()).setHero(new Hero(""));
 		((Hero) ((InsaniaTerra) this.getApplication()).getHero()).setHeroStatus(HeroStatus.NONE);
 		setContentView(R.layout.initial);
+		// setContentView(R.layout.equipment);
 		updateWidget();
 	}
 

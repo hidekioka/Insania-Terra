@@ -2,6 +2,7 @@ package game.android;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.android.R;
 
@@ -34,5 +35,9 @@ public class EquipmentActivity extends Activity {
 
 	protected void onDestroy() {
 		super.onDestroy();
+	}
+
+	public void viewProfileScreen(View view) {
+		finish();
 	}
 }

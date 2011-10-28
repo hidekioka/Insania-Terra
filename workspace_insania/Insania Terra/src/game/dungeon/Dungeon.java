@@ -13,10 +13,12 @@ public class Dungeon {
 
 	private Floor[] floors;
 	private String name;
+	private int timePerFloor;//in milis
 
 	public Dungeon(String name, int floorNumber, int size, Unit[] monsters, int encounterRate, int itemFindRate,
-			int healTileRate, int trapTileRate) {
+			int healTileRate, int trapTileRate, int timePerTile) {
 		this.name = name;
+		this.timePerFloor = timePerTile*size;
 		floors = new Floor[floorNumber];
 		for (int i = 0; i < floorNumber; i++) {
 			floors[i] = new Floor(i, size, monsters, encounterRate, itemFindRate, healTileRate, trapTileRate);
@@ -26,6 +28,10 @@ public class Dungeon {
 	public Dungeon(String name) {
 		this.name = name;
 		floors = new Floor[0];
+	}
+
+	public Integer getTimePerFloor() {
+		return timePerFloor;
 	}
 
 	public String getName() {

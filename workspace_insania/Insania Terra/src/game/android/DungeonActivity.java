@@ -82,6 +82,12 @@ public class DungeonActivity extends Activity {
 		}
 	}
 
+	/**
+	 * This method is used when a hero enters in a dungeon.
+	 * @param view
+	 * @param floorsToGo: number of floors to explore.
+	 * @param dungeonName: the dungeon that will be explored.
+	 */
 	public void sendHeroToDungeon(View view, int floorsToGo, String dungeonName) {
 		finish();
 		hero = ((Hero) ((InsaniaTerra) this.getApplication()).getHero());
@@ -91,9 +97,10 @@ public class DungeonActivity extends Activity {
 			hero.setActiveDungeon(dungeon, floorsToGo);
 			updateWidget();
 			/* timer coxamente implementado */
+			int timePerFloor = ((InsaniaTerra) this.getApplication()).getDungeonByName(dungeonName).getTimePerFloor();
 			Timer heroTimer = new Timer("Timer");
 			Date currentDate = new Date();
-			currentDate.setTime(currentDate.getTime() + 10000);
+			currentDate.setTime(currentDate.getTime() + timePerFloor * floorsToGo);
 			heroTimer.schedule(new WidgetTask(), currentDate);
 		} else {
 			Toast.makeText(this, hero.getName() + " is busy.", Toast.LENGTH_LONG).show();

@@ -35,8 +35,9 @@ public class DungeonManager {
 				Integer itemFindRate = Integer.parseInt(dungeonProperties[5]);
 				Integer healTileRate = Integer.parseInt(dungeonProperties[6]);
 				Integer trapTileRate = Integer.parseInt(dungeonProperties[7]);
+				Integer timePerTile = Integer.parseInt(dungeonProperties[8]);
 				dungeons.add(new Dungeon(name, floorNumber, size, enemyDB.getEnemiesByDifficulty(difficulty),
-						encounterRate, itemFindRate, healTileRate, trapTileRate));
+						encounterRate, itemFindRate, healTileRate, trapTileRate, timePerTile));
 			}
 			inputStream.close();
 		} catch (Exception e) {
